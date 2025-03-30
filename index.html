@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Excel </title>
+    <script src="https://kit.fontawesome.com/ce63ad5eab.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Menu Bar -->
+    <div class="menu_bar">
+        <!-- New Open Save -->
+        <div class="new_open_save_container">
+            <div class="icon_container">
+                <i class="fas fa-plus-square"></i>
+            </div>
+            <div class="icon_container">
+                <i class="fas fa-external-link-square-alt"></i>
+                <input type="file" class="open_input" style="display: none;">
+            </div>
+            <div class="icon_container">
+                <i class="fas fa-save"></i>
+            </div>
+        </div>
+
+
+        <!-- export dropdown -->
+        <div class="export-menu">
+            <button class="export-menu-btn">
+                <i class="fas fa-file-export"></i> Export
+            </button>
+            <div class="export-options">
+                <button onclick="exportFile('csv')">CSV (.csv)</button>
+                <button onclick="exportFile('pdf')">PDF (.pdf)</button>
+            </div>
+        </div>
+
+        <!-- find and replace -->
+        <!-- <button onclick="findAndReplace()">Find & Replace</button> -->
+        <!-- Tools Dropdown Menu -->
+        <div class="tools-menu">
+            <button class="tools-btn">Tools ▼</button>
+            <div class="tools-dropdown">
+                <button id="openFindReplace">Find & Replace</button>
+            </div>
+        </div>
+
+        <!-- Find & Replace Modal -->
+        <div class="find-replace-container" id="findReplaceBox">
+            <div class="find-replace-header">Find & Replace</div>
+            <input type="text" id="findInput" placeholder="Find text...">
+            <input type="text" id="replaceInput" placeholder="Replace with...">
+            <div class="find-replace-buttons">
+                <button id="findBtn">Find</button>
+                <button id="replaceBtn">Replace</button>
+                <button id="closeFindReplace">Close</button>
+            </div>
+        </div>
+
+
+
+        <button class="auto-save-toggle">Auto-Save: OFF</button>
+        <!-- Font Family and size -->
+        <div class="formating_container">
+            <select class="font_family_input">
+                <option value="Arial" style="font-family:arial;">Arial</option>
+                <option value="Brush Script MT" style="font-family:Brush Script MT;">Brush Script MT</option>
+                <option value="Garamond" style="font-family:Garamond;">Garamond</option>
+                <option value="Helvetica" style="font-family:Helvetica;">Helvetica</option>
+                <option value="Papyrus" style="font-family:Papyrus;">Papyrus</option>
+                <option value="Tahoma" style="font-family:Tahoma;">Tahoma</option>
+                <option value="veranda" style="font-family:veranda;">Veranda</option>
+            </select>
+            <select class="font_size_input">
+                <option value="10">10</option>
+                <option value="12">12</option>
+                <option value="14">14</option>
+                <option value="16">16</option>
+                <option value="18">18</option>
+                <option value="20">20</option>
+            </select>
+        </div>
+        <!-- alignment -->
+        <div class="alignment_container">
+            <i class="fas fa-align-left left" value="left"></i>
+            <i class="fas fa-align-center center" value="center"></i>
+            <i class="fas fa-align-right right" value="right"></i>
+            <i class="fas fa-align-justify justify" value="justify"></i>
+        </div>
+        <!-- Bold Italic Underline -->
+        <div class="bui_container">
+            <i class="fas fa-bold" value="b"></i>
+            <i class="fas fa-italic" value="b"></i>
+            <i class="fas fa-underline" value="b"></i>
+        </div>
+        <!-- Color -->
+        <div class="color_container">
+            <i class="fas fa-fill-drip"></i>
+            <input type="color" class="background_color">
+            <i class="fas fa-font"></i>
+            <input type="color" class="text_color">
+        </div>
+    </div>
+
+
+
+    <!-- Formula Bar -->
+    <div class="formula_bar">
+        <input type="text" class="address_input" placeholder="A1">
+        <img src="fx.png">
+        <input type="text" class="formula_input" placeholder="Formula">
+    </div>
+
+
+
+    <!-- grid -->
+    <div class="grid_container">
+        <div class="top_left_cell"></div>
+        <div class="top_row">
+        </div>
+        <div class="left_col">
+        </div>
+        <div class="grid"></div>
+    </div>
+
+
+
+    <!-- Sheets Container -->
+    <div class="sheet_container">
+        <div class="add-sheet_container">
+            <i class="far fa-plus-square newSheet"></i>
+        </div>
+        <div class="sheets-list">
+            <div class="sheet active-sheet" sheetIdx="1">Sheet 1</div>
+        </div>
+    </div>
+    <!-- Accessibility Button -->
+    <div class="floating-menu">
+        <button class="menu-btn">☰</button>
+        <div class="menu-options">
+            <button id="toggleTTS">Toggle Text-to-Speech</button>
+
+            <button id="voiceCommand">Voice Command</button>
+
+            <!-- Color Contrast Dropdown -->
+            <div class="dropdown">
+                <button id="dropdownBtn">Color Contrast ▼</button>
+                <div id="dropdownContent" class="dropdown-content">
+                    <button class="contrast-option" data-mode="color-blind-protanopia">Protanopia Mode</button>
+                    <button class="contrast-option" data-mode="color-blind-deuteranopia">Deuteranopia Mode</button>
+                    <button class="contrast-option" data-mode="color-blind-tritanopia">Tritanopia Mode</button>
+                    <button class="contrast-option" data-mode="color-blind-achromatopsia">Achromatopsia Mode</button>
+                    <button class="contrast-option" data-mode="color-blind-achromatomaly">Achromatomaly Mode</button>
+                    <button class="contrast-option" data-mode="high-contrast-mode">High Contrast Mode</button>
+                    <button class="contrast-option" data-mode="">Reset Contrast</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="init.js"></script>
+    <script src="menu.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script src="formula.js"></script>
+    <script src="sheets.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.23/jspdf.plugin.autotable.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script src="nos.js"></script>
+
+</body>
+
+</html>
