@@ -272,24 +272,24 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // Apply Color Blind or High Contrast Mode
-    function applyMode(mode) {
-        document.body.className = ""; // Reset previous modes
+    // // Apply Color Blind or High Contrast Mode
+    // function applyMode(mode) {
+    //     document.body.className = ""; // Reset previous modes
 
-        if (mode === "high-contrast") {
-            document.body.classList.add("high-contrast-mode");
-        } else if (mode) {
-            document.body.classList.add(`color-blind-${mode}`);
-        }
-    }
+    //     if (mode === "high-contrast") {
+    //         document.body.classList.add("high-contrast-mode");
+    //     } else if (mode) {
+    //         document.body.classList.add(`color-blind-${mode}`);
+    //     }
+    // }
 
-    // Event Listener for all contrast options
-    document.querySelectorAll(".contrast-option").forEach(button => {
-        button.addEventListener("click", function () {
-            let mode = this.getAttribute("data-mode");
-            applyMode(mode);
-        });
-    });
+    // // Event Listener for all contrast options
+    // document.querySelectorAll(".contrast-option").forEach(button => {
+    //     button.addEventListener("click", function () {
+    //         let mode = this.getAttribute("data-mode");
+    //         applyMode(mode);
+    //     });
+    // });
 
 });
 
