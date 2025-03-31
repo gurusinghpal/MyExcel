@@ -339,80 +339,140 @@ body{
     background-color: #01492f;
 }
 
-@media only screen and (max-width: 500px) {
-    .new_open_save_container{
-        width: 5rem;
-        height: 40%;
-        margin-left: 0.1rem;
+/* Original CSS remains completely unchanged above this line */
+
+/* Responsive Adjustments */
+@media only screen and (max-width: 1200px) {
+    .grid .cell, 
+    .top_row .cell {
+        min-width: 4.5rem;
     }
-    .icon_container>.fas{
-        margin-top: 0.3rem;
-        font-size: 1.4rem;
+}
+
+@media only screen and (max-width: 992px) {
+    .grid .cell, 
+    .top_row .cell {
+        min-width: 4rem;
     }
-    .font_family_input{
-        margin-top: 1.1rem;
-        margin-left:0.5rem;
-        width: 5rem;
+    .formula_input {
+        width: calc(100vw - 15rem);
     }
-    .font_size_input{
-        width: 4rem;
-    }
-    .alignment_container{
-        width: 5rem;
-        margin-left:-9.3rem;
-        margin-top: 2.8rem;
-    }
-    .bui_container{
-        width: 4rem;
-        margin-top: 2.8rem;
-    }
-    .color_container{
-        margin-top: 1.8rem;
-        width: 4.5rem;
-        height: 30%;
-    }
-  }
-  
-  @media only screen and (max-width: 320px) {
-    .new_open_save_container{
-        width: 4rem;
-        height: 35%;
-        margin-left: 0.1rem;
-    }
-    .icon_container>.fas{
-        margin-top: 0.3rem;
-        font-size: 1.2rem;
-    }
-    .font_family_input{
-        margin-top: 0.3rem;
-        margin-left:0.5rem;
-        width: 3.5rem;
-    }
-    .font_size_input{
-        width: 3.5rem;
-    }
-    .alignment_container{
-        width: 3.5rem;
-        margin-left:-7.3rem;
-        margin-top: 2rem;
-        font-size: 0.7rem;
-    }
-    .bui_container{
-        width: 3.5rem;
-        margin-top: 2rem;
-    }
-    .color_container{
-        margin-top: 3.8rem;
-        margin-left: -5.5rem;
-        width: 4.5rem;
-        height: 25%;
-        font-size: 1rem;
-    }
-    .color_container>i{
-        padding-top: 2px;
+}
+
+@media only screen and (max-width: 768px) {
+    .menu_bar {
+        height: auto;
+        padding: 0.5rem 0;
+        flex-wrap: wrap;
+        justify-content: center;
     }
     
-  }
+    .font_family_input,
+    .font_size_input,
+    .new_open_save_container,
+    .auto-save-toggle,
+    .alignment_container,
+    .bui_container,
+    .color_container {
+        margin: 0.25rem;
+    }
+    
+    .alignment_container {
+        margin-left: 0.25rem;
+    }
+    
+    .grid .cell, 
+    .top_row .cell {
+        min-width: 3.5rem;
+        font-size: 0.8rem;
+    }
+    
+    .formula_input {
+        width: calc(100vw - 12rem);
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    .grid .cell, 
+    .top_row .cell {
+        min-width: 3rem;
+    }
+    
+    .left_col, 
+    .top_left_cell {
+        width: 1.8rem;
+    }
+    
+    .grid {
+        left: 1.8rem;
+    }
+    
+    .top_row {
+        left: 1.8rem;
+    }
+    
+    .formula_input {
+        width: calc(100vw - 10rem);
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .grid .cell, 
+    .top_row .cell {
+        min-width: 2.5rem;
+        font-size: 0.7rem;
+    }
+    
+    .left_col, 
+    .top_left_cell {
+        width: 1.5rem;
+    }
+    
+    .grid {
+        left: 1.5rem;
+    }
+    
+    .top_row {
+        left: 1.5rem;
+    }
+    
+    .font_family_input {
+        width: 4.5rem;
+    }
+    
+    .font_size_input {
+        width: 3rem;
+    }
+    
+    .new_open_save_container {
+        width: 5.5rem;
+    }
+    
+    .formula_input {
+        width: calc(100vw - 9rem);
+    }
+}
+
+@media only screen and (max-width: 360px) {
+    .grid .cell, 
+    .top_row .cell {
+        min-width: 2.2rem;
+    }
+    
+    .formula_input {
+        width: calc(100vw - 8rem);
+    }
+    
+    .font_family_input {
+        width: 4rem;
+    }
+    
+    .new_open_save_container {
+        width: 5rem;
+    }
+}
+
+
 
 /* find and replace */
 /* 🔹 Tools Dropdown Styling */
@@ -754,4 +814,57 @@ body{
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.7); /* Stronger glow */
     border: 2px solid rgba(0, 0, 0, 0.9); /* Bright border */
     background-color: rgba(0, 150, 255, 0.1); /* Light background */
+}
+
+
+/* Fix only for export and tools menus - add this to your existing CSS */
+.menu_bar {
+    position: relative; /* Creates stacking context */
+    padding-right: 180px; /* Makes space for the buttons */
+}
+
+.export-menu {
+    position: absolute;
+    top: 10px;
+    right: 150px; /* Positions export left of tools */
+    z-index: 100;
+}
+
+.tools-menu {
+    position: absolute;
+    top: 10px;
+    right: 15px; /* Positions tools at far right */
+    z-index: 100;
+}
+
+.export-options {
+    right: 0; /* Aligns dropdown with button */
+}
+
+.tools-dropdown {
+    right: 0; /* Aligns dropdown with button */
+}
+
+/* Mobile responsive fix */
+@media only screen and (max-width: 768px) {
+    .menu_bar {
+        padding-right: 0;
+        padding-bottom: 50px; /* Makes vertical space */
+    }
+    
+    .export-menu, 
+    .tools-menu {
+        position: static;
+        margin: 5px auto;
+        width: 100px;
+    }
+    
+    .export-menu {
+        float: right;
+        margin-right: 10px;
+    }
+    
+    .tools-menu {
+        float: right;
+    }
 }
