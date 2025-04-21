@@ -684,8 +684,8 @@ body{
 .dropdown-content {
     display: none;
     position: absolute;
-    bottom: 0%; /* Open upward */
-    right: 189px;
+    bottom: 100%; /* Open upward */
+    left: 0;
     z-index: 100;
     background-color: #fff;
     min-width: 200px;
