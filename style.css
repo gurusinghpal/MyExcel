@@ -597,12 +597,14 @@ body{
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    z-index: 1000;
+    z-index: 100;
 }
 
 .menu-btn {
     background-color: #333; /* Bright orange */
     color: white;
+    position: relative;
+    z-index: 101;
     border: none;
     padding: 15px 20px;
     font-size: 22px;
@@ -620,7 +622,12 @@ body{
 }
 
 
+/* Menu options - fixed position & no shift */
 .menu-options {
+    position: absolute;
+    bottom: 63px; /* stays above the button */
+    right: 0;
+    width: 200px;
     display: none;
     flex-direction: column;
     background-color: #fff;
@@ -635,14 +642,15 @@ body{
     display: flex;
 }
 
-/* Dropdown hover logic */
+/* Dropdown on hover - opens upward */
 .contrast-dropdown {
     position: relative;
     display: inline-block;
     z-index: 100;
 }
 
-.contrast-dropdown:hover .dropdown-content {
+.contrast-dropdown:hover .dropdown-content,
+.contrast-dropdown:focus-within .dropdown-content {
     display: block;
 }
 
@@ -676,12 +684,15 @@ body{
 .dropdown-content {
     display: none;
     position: absolute;
-    bottom: 0%;
-    right: 162px;
+    bottom: 0%; /* Open upward */
+    right: 189px;
     z-index: 100;
     background-color: #fff;
-    min-width: 180px;
+    min-width: 200px;
+    max-height: 250px;
+    overflow-y: auto;
     border: 1px solid #ccc;
+    border-radius: 4px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
 
