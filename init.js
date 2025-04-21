@@ -272,6 +272,8 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
+    
+
     // // Apply Color Blind or High Contrast Mode
     // function applyMode(mode) {
     //     document.body.className = ""; // Reset previous modes
