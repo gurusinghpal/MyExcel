@@ -187,39 +187,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-
-// // // Text to Speech (Read full grid text)
-// document.getElementById("textToSpeech").addEventListener("click", function () {
-//     let text = document.querySelector(".grid").innerText;
-//     let speech = new SpeechSynthesisUtterance(text);
-//     speechSynthesis.speak(speech);
-// });
-
-// Voice Command Activation
-document.getElementById("voiceCommand").addEventListener("click", function () {
-    let recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
-    recognition.start();
-    recognition.onresult = function (event) {
-        let command = event.results[0][0].transcript.toLowerCase();
-        alert("You said: " + command);
-    };
-});
-
-// Hover Effect for Cells (Zoom & Shadow)
-document.querySelectorAll(".grid .cell").forEach(cell => {
-    cell.addEventListener("mouseover", function () {
-        this.style.transform = "scale(1.5)";
-        this.style.zIndex = "10";
-        this.style.boxShadow = "0 0 5px rgba(0, 0, 0, 0.3)";
-    });
-
-    cell.addEventListener("mouseout", function () {
-        this.style.transform = "scale(1)";
-        this.style.zIndex = "1";
-        this.style.boxShadow = "none";
-    });
-});
-
 //text to speech
 document.addEventListener("DOMContentLoaded", function () {
     let synth = window.speechSynthesis;
@@ -228,9 +195,11 @@ document.addEventListener("DOMContentLoaded", function () {
     let ttsEnabled = false; // Flag to track TTS state
 
     const toggleTTSButton = document.getElementById("toggleTTS");
+    console.log("Button:", toggleTTSButton);
 
     // Toggle TTS state
     toggleTTSButton.addEventListener("click", function () {
+        console.log("Button clicked"); // Confirm click is triggered
         ttsEnabled = !ttsEnabled;
         if (!ttsEnabled) {
             synth.cancel(); // Stop ongoing speech when turning off
@@ -271,6 +240,41 @@ document.addEventListener("DOMContentLoaded", function () {
             synth.cancel(); // Stop speech immediately when moving away if TTS is disabled
         }
     });
+
+
+// // // Text to Speech (Read full grid text)
+// document.getElementById("textToSpeech").addEventListener("click", function () {
+//     let text = document.querySelector(".grid").innerText;
+//     let speech = new SpeechSynthesisUtterance(text);
+//     speechSynthesis.speak(speech);
+// });
+
+// Voice Command Activation
+document.getElementById("voiceCommand").addEventListener("click", function () {
+    let recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+    recognition.start();
+    recognition.onresult = function (event) {
+        let command = event.results[0][0].transcript.toLowerCase();
+        alert("You said: " + command);
+    };
+});
+
+// Hover Effect for Cells (Zoom & Shadow)
+document.querySelectorAll(".grid .cell").forEach(cell => {
+    cell.addEventListener("mouseover", function () {
+        this.style.transform = "scale(1.5)";
+        this.style.zIndex = "10";
+        this.style.boxShadow = "0 0 5px rgba(0, 0, 0, 0.3)";
+    });
+
+    cell.addEventListener("mouseout", function () {
+        this.style.transform = "scale(1)";
+        this.style.zIndex = "1";
+        this.style.boxShadow = "none";
+    });
+});
+
+
 
     
 
