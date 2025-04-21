@@ -184,6 +184,11 @@ document.querySelector(".export-pdf").addEventListener("click", function () {
     doc.save("MyExcel.pdf");
 });
 
+document.querySelector('.menu-btn').addEventListener('click', function () {
+    document.querySelector('.floating-menu').classList.toggle('active');
+});
+
+
 
 document.querySelector(".export-csv").addEventListener("click", function () {
     if (!db || db.length === 0) {

@@ -623,12 +623,27 @@ body{
 .menu-options {
     display: none;
     flex-direction: column;
-    background: white;
+    background-color: #fff;
+    padding: 10px;
     border: 1px solid #ccc;
-    border-radius: 10px;
-    overflow: hidden;
-    margin-top: 10px;
-    width: 180px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    z-index: 100;
+}
+
+.floating-menu.active .menu-options {
+    display: flex;
+}
+
+/* Dropdown hover logic */
+.contrast-dropdown {
+    position: relative;
+    display: inline-block;
+    z-index: 100;
+}
+
+.contrast-dropdown:hover .dropdown-content {
+    display: block;
 }
 
 .menu-options button {
@@ -660,17 +675,27 @@ body{
 
 .dropdown-content {
     display: none;
-    flex-direction: column;
-    background: white;
+    position: absolute;
+    bottom: 0%;
+    right: 162px;
+    z-index: 100;
+    background-color: #fff;
+    min-width: 180px;
     border: 1px solid #ccc;
-    border-radius: 5px;
-    width: 100%;
-    margin-top: 5px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
 
 .dropdown-content button {
     width: 100%;
+    padding: 8px 12px;
     text-align: left;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown-content button:hover {
+    background-color: #f1f1f1;
 }
 
 .show {
